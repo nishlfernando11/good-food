@@ -1,0 +1,272 @@
+#leftCol{
+    width: 15vw;
+    float: left;
+}
+#midCol{
+    width: 60vw;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#rightCol{
+    width: 18vw;
+    float: left;
+}
+
+#accordian{
+    font-size: 13px;
+}
+
+#menuDiv{
+    font-size: 12px;
+    border:1px solid black;
+    border-radius: 10px;
+}
+
+.search{
+    float: left;
+    width: 37%;
+}
+.search input,select{
+    width: 80%;
+}
+.searchBtn{
+    float: left;
+    width: 10%;
+    padding-right: 5px;
+}
+.searchBtn input{
+    width: 95%;
+}
+#searchDiv input, select{
+    border: 1px solid #8caa8c;
+    border-radius: 4px;
+    height: 25px;
+    padding-left: 10px;
+    padding-bottom: 0;
+}
+
+.foods{
+    float: left;
+    width: 32%;
+}
+.foods img{
+    width: 60%;
+    height: 60%;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.foodItem{
+    border:3px solid #ccc;
+    border-radius: 12px 5px;
+    box-shadow: 4px 4px 3px rgba(103, 115, 130, 1);
+
+}
+.foodDes{
+    text-align: left;
+    padding-left: 5px;
+
+}
+#slider{
+    margin-left: 23%;
+    overflow: hidden;
+    width: 54%;
+    border-radius: 8px;
+
+}
+#slider .slides{
+    display: block;
+    height: 300px;
+    width: 1500px;
+    margin: 0;
+    padding: 0;
+}
+
+#slider li{
+    list-style-type: none;
+    float: left;
+}
+
+.videos{
+    width: 90%;
+}
+.vdobtns{
+    width: 50%;
+    border: 1px solid #8caa8c;
+    border-radius: 5px;
+    padding: 5px;
+}
+#foodList{
+    list-style-type: none;
+}
+#foodList u,img{
+    list-style-type: none;
+    border-radius: 10px;
+}
+
+#preview{
+    position:absolute;
+    border:3px solid #ccc;
+    background:#333;
+    padding:5px;
+    display:none;
+    color:#fff;
+    box-shadow: 4px 4px 3px rgba(103, 115, 130, 1);
+}
+
+#svg{
+    height: 250px;
+    padding-bottom: 5%;
+}
+
+
+.svg image{
+    width: 100px;
+    height: 60px;
+}
+
+#navBar li:first-child{
+    -moz-border-radius-topleft: 8px;
+    -moz-border-radius-bottomleft: 8px;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+#navBar li:last-child{
+    -moz-border-radius-topright: 8px;
+    -moz-border-radius-bottomright: 8px;
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#subscribe{
+    background-color: rgba(84, 170, 128, 0.33);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 10px;
+}
+
+#clockDiv
+{
+    width: 95%;
+    height: 50px;
+    margin: 0 auto;
+}
+#clock
+{
+    width: 95%;
+
+    display: block;
+    background: midnightblue;
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+
+#menutopic{
+
+    height: 35px;
+}
+#section{
+    padding: 0.5vw;
+}
+@media screen and (max-width:959px){
+    #leftColumn{
+        width: 70vw ;
+    }
+    #rightColumn{
+        width: 30vw ;
+    }
+    .service{
+        width: 30vw;
+    }
+
+}
+
+@media screen and (max-width:799px){
+
+    #svgdiv{
+        display: none;
+    }
+    #slider{
+        margin-left: 5%;
+        overflow: hidden;
+        width: 90%;
+        border-radius: 8px;
+
+    }
+    .service{
+        width: 30vw;
+        margin: 5vw;
+        padding: 2vw;
+        margin-top: -3vw;
+    }
+    .foodItem{
+        float: left;
+        width: 50%;
+
+    }
+    .foods{
+        text-align: center;
+        width: 100%;
+    }
+
+}
+
+
+@media screen and (max-width:599px){
+    #leftCol{
+        display: none;
+    }
+    #midCol{
+        padding-top: 5px;
+        width: 100vw;
+    }
+    #rightCol{
+        padding-top: 5px;
+        width: 100vw ;
+    }
+    #navBar li{
+        width: 70vw;
+        padding: 5px;
+        font-size: medium;
+    }
+    #foodSet{
+        margin-left: 12%;
+    }
+    .foods{
+        text-align: center;
+        width: 80vw;
+    }
+    #slider{
+        margin-left: 8%;
+        overflow: hidden;
+        width: 78%;
+        border-radius: 8px;
+
+    }
+
+}
+
+@media screen and (min-width:961px) {
+    #leftColumn {
+        width: 80vw;
+    }
+
+    #rightColumn {
+        width: 16vw;
+        margin-top: -3vw;
+    }
+
+    .service {
+        width: 35vw;
+        margin: 1vw;
+        padding: 1vw;
+        margin-top: -3vw;
+    }
+
+}
+
+

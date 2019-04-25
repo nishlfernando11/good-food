@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html ng-app="staff">
+
+<head>
+    <title>Staff - Food Restaurant</title>
+	<!--Angularjs used to search staff detail-->
+	<script src="http://code.angularjs.org/1.1.5/angular.min.js"> </script>
+    <script>
+      var staff = angular.module('staff', []);
+      staff.controller('staffdetail', function ($scope){
+        $scope.staffnames = [
+          {"name": "Martin Flower","pos": "CEO","contact": "0759090300"},
+          {"name": "Benn Hill","pos": "Vice President","contact": "0755440300"},
+          {"name": "Alan Perera","pos": "Accountant","contact": "0734665300"},
+		  {"name": "Peris Down","pos": "Head Cook","contact": "076775393"},
+          {"name": "Andrea Alan","pos": "Head Cook","contact": "077594232"},
+          {"name": "Stephanie Stella","pos": "Receptionist","contact": "01124500600"}
+        ];
+      });
+    </script>
+
+<!--local storage-->	
+<script>
+function count() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("final").innerHTML = "You have viewed this page for " + localStorage.clickcount + " times!";
+    } 
+	else {
+        document.getElementById("final").innerHTML = "Your browser not supports local storage facility!";
+    }
+}
+</script>
+	
+    <meta name="viewport" content=“width=device-width,initial-scale=1" >
+    <link href="../CSS/12000639.css" rel="stylesheet" type="text/css">
+	<script src="../JS/12000639.js"> </script>
+</head>
+<body ng-controller="staffdetail">
+
+<div id="container" >
+
+    <img id="cov" src="../images/cover1.jpg">
+
+    <div id="navBar">
+        <ul>
+            <li><a class="list-items" href="../index.html">HOME</a></li>
+            <li><a class="list-items" href="menu.html">MENU</a></li>
+            <li><a class="list-items" href="services.html">SERVICES</a></li>
+            <li><a class="list-items" href="events.html">EVENTS</a></li>
+            <li><a class="list-items" href="staff.html">STAFF</a></li>
+            <li><a class="list-items" href="contactus.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <br>
+	
+
+    <section id="about-us">
+		<div align="center">
+		<h2>About our staff</h2>
+<p class="lead">Our mission is to provide widest possible choice in the range of sports, increase level of participation and quality method of delivery to strengthen the foundation for growth to support participation and improved elite sport performance,
+Working together as a team,continually striving for excellence,drawing on best practice and finally to develop the skills and attitudes needed for the intellectual engagement
+and challenge of in-depth university level study' through sport. </p>
+		</div>
+		
+		<!--Slideshow-->
+		
+		<ul class="slides">
+		<input type="radio" name="radiobtn" id="img1" checked />
+		
+		<li class="content">
+			<div class="slide">
+				<img src="../images/staff2.jpg" />
+			</div>
+		</li>
+
+		<input type="radio" name="radiobtn" id="img2"  />
+		<li class="content">
+			<div class="slide">
+			  <img src="../images/staff1.jpg" />
+			</div>
+		</li>
+
+		<input type="radio" name="radiobtn" id="img3" />
+		<li class="content">
+			<div class="slide">
+			  <img src="../images/staff3.jpg" />
+			</div>
+		</li>
+
+
+		<li class="dots">
+		  <label for="img1" class="dot" id="dot1"></label>
+		  <label for="img2" class="dot" id="dot2"></label>
+		  <label for="img3" class="dot" id="dot3"></label>
+		</li>
+	</ul>
+	<br>
+	
+	<div align="center">
+		<h2>Our objective</h2>
+<p class="lead">To offer a higher-than-usual level of customer service. This is always a priority, but especially for a new restaurant that still has something to prove. Train our staffs to be efficient and effective in serving customers and put a bonus or reward-based system in place as an incentive for an intense focus on pleasing your restaurant's clientele.</p>
+	</div>    	
+	<br>
+	
+	<!--Video-->
+	
+	<div align="center">
+		<h2>How we treat our customer?</h2>
+		 <video width="420" height="315" controls>
+		 <source src="../Videos/video1.mp4" frameborder="0" type="video/mp4"></source>
+		 </video>
+	</div>
+	<br>
+	
+	<!--Staff details, images can be zoomed-->
+	<div align="center">
+		<h2>Our Staff</h2>
+	</div>
+	
+	<center>
+	<img class="photo" src="../images/im1.jpg"/>
+	<img class="zoom" src="../images/im1.jpg"/><br>
+	(Move the mouse pointer on the image to enlarge it.)
+  <dl>
+  <dt><b>Martin Flower</b></dt>
+  <dt>CEO of Food Restaurant</dt>
+  <dt>Contact no : 0759090300</dt>
+  <p align="justify">Martin Flower was appointed as the Chief Executive Officer (CEO) of Food Restaurant (R&CA) in 1999.
+R&CA is the peak industry body representing restaurants, cafes and caterers across Australia.
+John came to the association from Tourism Training NSW, where he was Executive Officer for five years.
+He has spent more than 30 years working in the hospitality industry, trained in food and beverage management at the Ecole Hotelliere Lausanne in Switzerland, and holds a Bachelor of Commerce majoring in Business Law.
+John currently serves as Chair of the Commonwealth Vocational Education and Training Advisory Board and the National Tourism Alliance and is on Prime Minister’s Business Advisory Council, as well as the board of the National Centre for Vocational Education Research.
+</p>
+  </dl> 
+  
+  <!--Audio-->
+  Intro to our Retaurant! Listen!<br><br>
+  <audio controls>
+		 <source src="../Audio/speech.mp3" frameborder="0" type="audio/mp3"></source>
+  </audio>
+  <br><br><br>
+  
+	<img class="photo" src="../images/im2.jpg"/>
+	<img class="zoom" src="../images/im2.jpg"/>
+  <dl>
+  <dt><b>Benn Hill</b></dt>
+  <dt>Vice President of Food Restaurant</dt>
+  <dt>Contact no : 0755440300</dt>
+  <p align="justify">Benn Hill is senior vice president and general manager of Fod Restaurant Group. Saik leads the organization that creates Intuit consumer finance products, including Mint, Mint Bills and Quicken with a focus on simplifying everyday financial tasks.
+Saik previously served as general manager of the company's Grow Your Business division, which included overseeing Intuit Websites and managing its divestiture in 2012.</p>
+  </dl> 
+  <br>
+  
+	<img class="photo" src="../images/im3.jpg"/>
+	<img class="zoom" src="../images/im3.jpg"/>
+  <dl>
+  <dt><b>Alan Perera</b></dt>
+  <dt>Accountant of Food Restaurant</dt>
+  <dt>Contact no : 0734665300</dt>
+  <p align="justify">A passed finalist of the renowned Chartered Institute of Management Accountants, UK and a thoroughly experienced financial Accountant , who would like to become a CFO in a reputed organization in 10 years.
+Currently I am working as a Senior Accountant at Food Restaurant Group of companies which engages restaurant industry and catering service. </p>
+  </dl> 
+  <br>
+		
+	<img class="photo" src="../images/im4.jpg"/>
+	<img class="zoom" src="../images/im4.jpg"/>
+  <dl>
+  <dt><b>Peris Down</b></dt>
+  <dt>Head Cook</dt>
+  <dt>Contact no : 076775393</dt>
+  <p align="justify">Peris Down is most well known for his daily appearances on Good Chef Bad Chef however there is more to Richardson than his television career. Unlike many chefs, Adrian hasn’t always dreamed of being behind the pots and pans. In fact, cooking was used to pay for his flying lessons, as he wanted to become a pilot. However, this dream didn’t last long, as he suddenly found his calling as a chef. </p>
+  </dl> 
+  <br>
+  
+	<img class="photo" src="../images/im5.jpg"/>
+	<img class="zoom" src="../images/im5.jpg"/>
+  <dl>
+  <dt><b>Andrea Alan</b></dt>
+  <dt>Head Cook</dt>
+  <dt>Contact no : 077594232</dt>
+  <p align="justify">After an impressive international and local career, working at high profile restaurants in Australia and the UK, Andrea Alan has joined The Governors Table Bar & Dining as Head Chef. Barkham recently worked at twin-torqued The Bridge Room following on from Selah in Sydney and the one hatted The Point in Melbourne where he cooked alongside culinary heavy weight chef, Justin Wise.</p>
+  </dl> 
+  <br>
+  
+	<img class="photo" src="../images/im6.jpg"/>
+	<img class="zoom" src="../images/im6.jpg"/>
+  <dl>
+  <dt><b>Stephanie Stella</b></dt>
+  <dt>Receptionist</dt>
+  <dt>Contact no : 01124500600</dt>
+  <p align="justify">Heading the front of the house operations ensuring the highest level of customer care while leading the team to achieve the organizational goals. Worked as the Front Office Executive, ensuring all the S.O.P s are being followed by the reception staff while assuring expectations are exceeded of all the guests.</p>
+  </dl> 
+	</center>
+	<br>
+	<br>
+	
+	<!--Angularjs used to search staff detail-->
+	
+	<div class="search">
+	<h2>Search staff</h2>
+	<center>
+	Search:<input ng-model="query" type="text"/><br><br><br>
+    <table>
+      <tr>
+        <th>Staff name</th>
+		<th>Position</th>
+		<th>Contact no</th>
+      </tr>
+      <tr ng-repeat="staff in staffnames | filter:query">
+        <td>{{staff.name}}</td>
+		<td>{{staff.pos}}</td>
+		<td>{{staff.contact}}</td>
+      </tr>
+    </table>
+	</center>
+	</div>
+	
+	<!--Canvas-->
+    <br>	
+	<div class="search">
+	<h2>Our logo</h2>
+	<center>
+	<canvas id="canvas" height="50" >
+	
+	</canvas>
+	
+	<p><button onclick="count()" type="button"> Click to refresh the page!</button></p>
+<div id="final"></div>
+	</center>	
+	</div>
+
+	</section>
+    	
+		<br><br><br><br>
+    <div id="footer">
+        <h4>&#169 2015 | Index no - 12000639 | Name - S.Janagan | Registration no - 2012CS063  </h4>
+    </div>
+</div>
+</body>
+</html>

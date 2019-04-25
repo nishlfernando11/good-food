@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FOOD FOOD</title>
+    <meta name="viewport" content=“width=device-width,initial-scale=1" >
+    <link href="CSS/main.css" rel="stylesheet" type="text/css">
+    <link href="CSS/12000086.css" rel="stylesheet" type="text/css">
+
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+
+        myApp.controller('MyController', function ($scope) {
+            $scope.foods = [
+                {
+                    "name":"Bruschetta",
+                    "des":"Bruschetta (Italian pronunciation: [bruˈsketta] is an antipasto (starter dish) from Italy consisting of grilled bread rubbed with garlic and topped with olive oil and sal",
+                    "type":"Chinese"
+                }
+                ,
+                {
+                    "name":"Salami",
+                    "des":"Salami is cured sausage, made of fermented and air-dried meat from one of several animals—but typically beef or pork.",
+                    "type":"Arabic"
+                }
+                ,
+                {
+                    "name":"Pasta e fagioli",
+                    "des":"Pasta e fagioli, meaning 'pasta and beans', is a traditional meatless Italian dish. Like many other Italian favorites including pizza and polenta, the dish started as a peasant dish, being composed of inexpensive ingredients",
+                    "type":"Europe"
+                }
+                ,
+                {
+                    "name":"Pizza",
+                    "des":"Pizza is an oven-baked flat bread generally topped with tomato sauce and cheese. It is commonly supplemented with a selection of meats, vegetables and condiments. The term was first recorded in the 10th century, in a Latin manuscript from Gaeta in Central Italy.",
+                    "type":"Europe"
+                }
+            ]
+        });
+    </script>
+
+
+
+    <script type="text/javascript">
+        $(function() {
+            $( "#accordian" ).accordion({ header: "h4" });
+            $( "#menu" ).menu();
+        });
+    </script>
+    <script>
+        $(function(){
+            var width = 240;
+            var animationSpeed = 1000;
+            var pause = 3000;
+            var curSlide = 1;
+
+            var $slider = $('#slider .slides');
+            var $slides = $slider.find('.slide');
+            setInterval(function(){
+                $slider.animate({'margin-left':'-='+width},animationSpeed, function(){
+                    curSlide++;
+                    if(curSlide === $slides.length){
+                        curSlide = 1;
+                        $slider.css('margin-left',0);
+                    }
+                });
+            },pause);
+        });
+    </script>
+
+</head>
+<body>
+<div id="container" >
+
+    <img id="cov" src="images/cover1.jpg">
+
+    <nav id="navBar">
+        <ul>
+            <li><a class="list-items" href="index.html">HOME</a></li>
+            <li><a class="list-items" href="HTML/menu.html">MENU</a></li>
+            <li><a class="list-items" href="HTML/services.html">SERVICES</a></li>
+            <li><a class="list-items" href="HTML/events.html">EVENTS</a></li>
+            <li><a class="list-items" href="HTML/staff.html">STAFF</a></li>
+            <li><a class="list-items" href="HTML/contactus.html">CONTACT</a></li>
+        </ul>
+    </nav>
+
+    <div>
+        <br>
+
+        <br>
+    </div>
+
+
+    <div id="fill">
+        <section id="section">
+
+            <div id="leftCol">
+                <div id="menuDiv">
+                    <ul id="menu">
+                        <li>Best Foods</li>
+                        <li>Job Vacancies</li>
+                        <li>Addyston</li>
+                        <li>Our Parter
+                            <ul>
+                                <li>Saarland</li>
+                                <li>Ben Foods</li>
+                            </ul>
+                        </li>
+                        <li>Promotions
+                            <ul>
+                                <li>Cities
+                                    <ul>
+                                        <li>Colombo</li>
+                                        <li>Rathnapura</li>
+                                        <li>Galle</li>
+                                    </ul>
+                                </li>
+                                <li>Mobile
+                                    <ul>
+                                        <li>Races</li>
+                                        <li>Games</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="ui-state-disabled">Payments</li>
+                    </ul>
+                </div>
+                <div id="svgdiv">
+                    <svg id="svg">
+
+                        <g transform="translate(5,35)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="images/service-2.jpg" x="0" y="0" width="150" height="100" />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="rotate" values="0; -10; 10; -10; 0" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+
+                        <g transform="translate(5,135)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="images/service-3.jpg" x="0" y="0" width="150" height="100" />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="rotate" values="0; -10; 10; -10; 0" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+
+            </div>
+            <div id="midCol" lang="en" ng-app="myApp" ng-controller="MyController">
+
+                <div id="searchDiv">
+                    <div class="search">
+                        <input ng-model="query" type="text" id="anyThing" placeholder="Search here">
+                    </div>
+                    <div class="search">
+                        <select name="foodCat" id="foodCat">
+                            <option value="Arabic">Arabic</option>
+                            <option value="Indian">Indian</option>
+                            <option value="Sri Lanken" selected="selected">Sri Lanken</option>
+                            <option value=Europe"">Europe</option>
+                            <option value="Chinese">Chinese</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input style="background-color: #ff646c; width: 80px" type="button" value="Search">
+                    </div>
+                </div>
+
+                <div>
+                    <br>
+
+                    <br>
+                </div>
+
+                <div ng-controller = "MyController">
+                    <ul id="foodList">
+                        <li ng-repeat="item in foods | filter: query ">
+                            <div>
+                                <img ng-src="images/search/{{item.name}}.jpg" alt="Photo of {{item.name}}">
+                                <h2>{{item.name}}</h2>
+                                <h3>{{item.des}}</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+            </div>
+            <div id="rightCol">
+                <div id="accordian">
+
+                    <h4><span class="subhead">Special Dinner Offer</span></h4>
+                    <div>
+                        <p>For dinner meals all our customers will be fulfilled with amazing special meals.</p>
+                        <ul>
+                            <li><a href="#">Fruit Salad</a></li>
+                            <li><a href="#">Yoghurt</a></li>
+                            <li><a href="#">Watalappan</a></li>
+                        </ul>
+                    </div>
+                    <h4><span class="subhead">Our Special Drinks</span></h4>
+                    <div>
+                        <p>We are ready to server you with the best special drinks for your very special moments</p>
+                        <ul>
+                            <li><a href="#">Red Wine<img style="width: 30px;height: 50px" src="images/redwine.png"></a></li>
+                            <li><a href="#">White Wine<img style="width: 30px;height: 50px" src="images/whitewine.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+
+</div>
+<footer id="footer">
+    <h4>&#169 2015 | 12000086 | A.M.I.ALAHAKOON | 2012CS008  </h4>
+</footer>
+</body>
+
+
+</html>

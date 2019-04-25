@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content=“width=device-width,initial-scale=1" >
+    <link href="../CSS/12000302.css" rel="stylesheet" type="text/css" id="CSStag">
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+</head>
+<body>
+<div id="container" >
+
+    <div id="carousel">
+        <img  src="../images/cover1.jpg" class="active">
+        <img  src="../images/cover2.jpg">
+        <img  src="../images/cover3.jpg">
+        <img  src="../images/cover4.jpg">
+        <img  src="../images/cover5.jpg">
+    </div>
+
+    <div id="thumbnailContainer">
+        <div id="cover1" class="activeThumbnail">
+            <img  src="../images/cover1.jpg" >
+        </div>
+
+        <div id="cover2">
+            <img  src="../images/cover2.jpg">
+        </div>
+
+        <div id="cover3">
+            <img  src="../images/cover3.jpg">
+        </div>
+
+        <div id="cover4">
+            <img  src="../images/cover4.jpg">
+        </div>
+
+        <div id="cover5">
+            <img  src="../images/cover5.jpg">
+        </div>
+    </div>
+
+
+    <div id="navBar" >
+
+        <span class="menu" >GoodFood</span>
+        <ul id="navul">
+            <li><a class="list-items" href="../index.html">HOME</a></li>
+            <li><a class="list-items" href="menu.html">MENU</a></li>
+            <li><a class="list-items" href="services.html">SERVICES</a></li>
+            <li><a class="list-items" href="events.html">EVENTS</a></li>
+            <li><a class="list-items" href="staff.html">STAFF</a></li>
+            <li><a class="list-items" href="contactus.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <div id="search">
+        <form>
+            <input type="text" value="" size="70" class="searchField" />
+
+            <select >
+                <option value="service1" selected>service1</option>
+                <option value="service2">service2</option>
+                <option value="service3">service3</option>
+                <option value="service4">service4</option>
+                <option value="service5">service5</option>
+                <option value="service6">service6</option>
+            </select>
+            <button>Search</button>
+            <button id="signIn" ><a class='activate_modal' name='first_window' href='#'>Sign In</a></button>
+        </form>
+
+        <div id='mask' class='close_modal'></div>
+        <div id='first_window' class='modal_window'>
+            <h2>Sign In Form</h2>
+
+            <form ng-app="myApp" ng-controller="validateCtrl" name="myForm" novalidate>
+
+                <p>Email:<br>
+                    <input type="email" name="email" ng-model="email" required>
+                    <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                    <span ng-show="myForm.email.$error.required">Email is required.</span>
+                    <span ng-show="myForm.email.$error.email">Invalid email address.</span>
+                    </span>
+                </p>
+
+                <p>Password:<br>
+                    <input type="password" name="user" ng-model="user" required>
+                    <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
+                    <span ng-show="myForm.user.$error.required">Password is required.</span>
+                    </span>
+                </p>
+
+                <p>
+                    <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||myForm.email.$dirty && myForm.email.$invalid">
+                </p>
+
+            </form>
+
+            <script>
+                var app = angular.module('myApp', []);
+                app.controller('validateCtrl', function($scope) {
+                    $scope.user = 'Admin';
+                    $scope.email = 'Admin@gmail.com';
+                });
+            </script>
+
+        </div>
+
+        <div id='second_window' class='modal_window2'>
+
+            <img src="../images/ubuntu.svg" id="bg" alt="ubuntu logo">
+
+
+            <svg >
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%"
+                                    x2="100%" y2="0%">
+                        <stop offset="0%"
+                              style="stop-color:rgb(255,255,0);stop-opacity:1"/>
+                        <stop offset="100%"
+                              style="stop-color:rgb(255,0,0);stop-opacity:1"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="200" cy="70" rx="85" ry="55"
+                         fill="url(#grad1)"/>
+            </svg>
+
+        </div>
+
+        <div id="result"></div>
+
+
+    </div>
+
+    <div id="section">
+        <div id="leftColumn">
+
+            <h1>Main Services</h1>
+
+            <div class="service">
+                <img class="serve" src="../images/service-1.jpg" name="second_window" >
+                <div class="disc">
+                    <h3><a name="service1">Contact The Concierge</a></h3>
+                    <p>At the GoodFood, we go out of our way to make guests feel
+                        welcome. Our 24-hour Concierge is always close at hand to assist with reservations, luggage handing and suggestions for outings.</p>
+                </div>
+
+            </div>
+
+            <div class="service">
+                <img class="serve" src="../images/service-2.jpg" name="second_window">
+                <div class="disc">
+                    <h3><a name="service2">Resort Shopping</a></h3>
+                    <p>Our boutique features an array of merchandise from quality
+                        apparel to souvenirs that embody the personality of this beautiful destination.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <img class="serve" src="../images/service-3.jpg" name="second_window">
+                <div class="disc">
+                    <h3><a name="service3">Business Services</a></h3>
+                    <p>With extensive meeting facilities, state-of-the-art equipment and highly professional staff,
+                        The Kingsbury offers a wide range of services and facilities to cater to all your business needs</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <img class="serve" src="../images/service-4.jpg" name="second_window">
+                <div class="disc">
+                    <h3><a name="service4">SPA</a></h3>
+                    <p>Awaken your inner spirit and revel in the restorative power of nature at our Ayurvedic spa - Warichchi Veda Madura.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <img class="serve" src="../images/service-5.jpg" name="second_window">
+                <div class="disc">
+                    <h3><a name="service5">EXCURSIONS</a></h3>
+                    <p>Discover a paradise of natural wonders. Embark on invigorating journeys and witness cultural experiences beyond the hotel.</p>
+                </div>
+            </div>
+
+            <div class="service">
+                <img class="serve" src="../images/service-6.jpg" name="second_window">
+                <div class="disc">
+                    <h3><a name="service6">Fitness Center</a></h3>
+                    <p>Help yourself to a full-body workout at our fully-equipped
+                        fitness centre and let our qualified fitness trainers assist you with crafting a customised workout plan to suit your requirements.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="rightColumn">
+            <h1>Featured Services</h1>
+            <ul>
+                <li><a href="#service6"><span>Conference Rooms</span></a></li>
+                <li><a ><span>LIMOUSINE Provide</span></a></li>
+                <li><a ><span>Fitness Center</span></a></li>
+                <li><a ><span>Business Center</span></a></li>
+                <li><a ><span>Juvenex Spa and Salon</span></a></li>
+                <li><a ><span>Swimming Pool</span></a></li>
+                <li><a ><span>Park in Service</span></a></li>
+                <li><a ><span>Travelling Service</span></a></li>
+                <li><a ><span>Money exchange</span></a></li>
+                <li><a ><span>Massage Service</span></a></li>
+                <li><a ><span>Laundry services</span></a></li>
+                <li><a ><span>Pool Terrace Sea View</span></a></li>
+                <li><a ><span>Free Wi-Fi in public areas</span></a></li>
+                <li><a ><span>Car Rental and Motos</span></a></li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <div id="takeATour">
+        <h2>Take a Tour</h2>
+        <video controls>
+            <source src="../Videos/video1.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="../Videos/funny.mp4" type="video/mp4">
+        </video>
+
+    </div>
+
+    <div id="news">
+        <h2>News Area</h2>
+        <div id="news1">
+            <h3 id="nh31" >New York Palace buy indicative of capital inflows outside China</h3>
+            <p>Chinese money isn't the only capital making waves in the U.S. hotel market. South Korea has joined the party—and then some. outh Korea's
+                Lotte Group is positioned to acquire the New York Palace Hotel, in midtown Manhattan's, for $805 million, or around $885,000 per key </p>
+        </div>
+        <div id="news2">
+            <h3 id="nh32">Accor changes its name to AccorHotels</h3>
+            <p>Sebastien Bazin, AccorHotels Chairman and CEO, said of the name change, "Today, our group changes and loudly and clearly proclaims its desire to go further, faster. Accor becomes AccorHotels and proudly re-assumes its role as a pioneer hotelier that never stops innovating and surprising, at the cutting edge of digital technology, but while remaining a hotelier, first and
+                foremost. The Feel Welcome promise is a strong commitment to all our audiences and enriches the bond between the Group and its brands."</p>
+        </div>
+        <div id="news3">
+            <h3 id="nh33">Hotel Equities will manage two full-service hotels</h3>
+            <p>Atlanta-based Hotel Equities has been tapped to manage two upscale, full service hotels in two decidedly different markets.
+                Hotel Equities will manage the 262-room Holiday Inn in Joplin, Missouri that will rebrand to a DoubleTree by Hilton after undergoing a $6 million renovation during the next 12 months. Hotel
+                Equities is also set to manage a 250-room, full service new-build scheduled to break ground in late 2015 in the North Miami area</p>
+        </div>
+        <div id="news4">
+            <h3 id="nh34">Accor boosts digital to fight OTAs</h3>
+            <p>Accor announced yesterday it would spend $25 million to enable independent hoteliers to offer their rooms on its booking website as it seeks ways to fight back against OTAs. The world's fourth-largest hotel group, which is undergoing a reorganization initiated
+                by Chief Executive Sebastien Bazin, is also changing its name to "AccorHotels,” inline with its website, as part of the strategy.</p>
+        </div>
+
+    </div>
+
+    <div id="socialMedia">
+        <form>
+            <input value="" type="email" name="mail" size="80">
+            <input type="button" value="Send" onclick="clickCounter()">
+        </form>
+        <div id="smt">
+            <div>
+                <img src="../images/Twitter.png">
+            </div>
+            <div>
+                <img src="../images/fb.png">
+            </div>
+            <div>
+                <img src="../images/g+.gif">
+            </div>
+            <div>
+                <img src="../images/youtube.jpg">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div id="table">
+        <div>
+            <ul>
+                <li>Home</li>
+                <li>Services</li>
+                <li>Gallery</li>
+                <li>Staff</li>
+                <li>Contact</li>
+                <li>Online Order</li>
+                <li>Student Plans</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>Terms Of Use</li>
+                <li>DisClaimer</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li>ABC Company</li>
+                <li>Our Hotels</li>
+                <li>More Services</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div id="map"  >
+    </div>
+
+    <div id="footer">
+        <h4>&#169 2015 | 12000302 | D.L.P De Soysa | 2012/CS/030  </h4>
+    </div>
+</div>
+<script type="text/javascript" src="../JS/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../JS/12000302.js"></script>
+
+</body>
+</html>

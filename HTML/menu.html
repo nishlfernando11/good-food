@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content=“width=device-width,initial-scale=1" >
+	<link href="../CSS/menu.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../JS/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="../JS/jquery-ui-1.10.2.custom.js"></script>
+    <script type="text/javascript" src="../JS/angular.min.js"></script>
+    <!-- aside angular js code  -->
+    <script>
+        // display contact us images when the button was clicked
+        var app = angular.module('contact', []); // pass ng-app name
+        app.controller('contactCtrl', function($scope) { // pass controller name
+            //set values to display in the input fields
+            $scope.hotline = "+775556666";
+            $scope.email = "goodfood@gmail.com";
+            $scope.address = "No: 333, XXXX, Sri Lanka";
+            $scope.contactdetails = true; //initialize the visibility of contactUsDetails : hidden
+            $scope.toggle1 = function() {
+                $scope.contactdetails = !$scope.contactdetails;//do the opposite thing to the visibility
+            }
+        });
+    </script>
+
+    <script type="text/javascript">
+	 $(function() {
+				// set up the news accordion on the lower page
+				$("#part1").accordion({ header: "h4" });
+
+			});
+	$(function() {
+            // create the image rotator , call function with the given interval
+            setInterval("slideImages()", 2000);
+        });
+
+        function slideImages() {
+            var currentImage = $('#slider div.currentImg'); //get current image
+            var nextImage = currentImage.next(); //assign the next image
+            if (nextImage.length == 0)
+                nextImage = $('#slider div:first'); //
+
+            currentImage.removeClass('currentImg').addClass('previousImg'); //change class: (css) so that current image appears previous image hides
+            nextImage.css({ opacity: 0.0 }).addClass('currentImg').animate({ opacity: 1.0 }, 1200,
+                function() {
+                    currentImage.removeClass('previousImg'); // change div by changing assigned class
+                });
+        }
+	</script>
+
+    <!-- bubble fall canvas -->
+    <script>
+        //load bubble fall effect on window load
+        window.onload = function(){
+            //get the canvas
+            var canvas = document.getElementById("canvas");
+            var canvasWindow = canvas.getContext("2d"); // set canvas effect is on a 2D plane
+
+
+            //canvas dimensions
+            var W = window.innerWidth; // get and initialize window width
+            var H = window.innerHeight; // get and initialize window height
+            canvas.width = W; // set canvas width
+            canvas.height = H;// set canvas height
+
+            //bubbles
+            var maxParts = 100; //maximum no of bubbles
+            var bubbles = []; // initialize an array to put details of the bubble
+            for(var i = 0; i < maxParts; i++) // for each bubble include the following info to the array and do the following
+            {
+                bubbles.push({
+                    // add random values : physical information of a bubble where to float, which size
+                    x: Math.random()*W, //set x-coordinate
+                    y: Math.random()*H, //set y-coordinate
+                    r: Math.random()*6+1, //set radius generate random radius
+                    d: Math.random()*maxParts //density
+                })
+            }
+
+            //Draw bubbles
+            function drawBubbles()
+            {
+                var grd = canvasWindow.createLinearGradient(100,100,200,0); //set color gradient directions
+                grd.addColorStop(0,"green"); // green starts from the beginning
+                grd.addColorStop(0.5, "forestgreen");// color changes in the middle
+                grd.addColorStop(0.5, "limegreen");// color changes in the middle
+                grd.addColorStop(1,"lightgreen");// ends with light green
+
+                canvasWindow.fillStyle = grd;// Fill window with specified gradient colors
+                canvasWindow.clearRect(0, 0, W, H);// set window to display
+                canvasWindow.beginPath();// start drawing
+                for(var i = 0; i < maxParts; i++)
+                {
+                    var bub = bubbles[i];
+                    canvasWindow.moveTo(bub.x, bub.y);//bubble positioning
+                    canvasWindow.arc(bub.x, bub.y, bub.r, 0, Math.PI*2, true);//draw bubble
+                }
+                canvasWindow.fill();// set bubbles in the positions ,but still they are not moving
+                moveBubbles();
+            }
+
+            //Make move bubbles
+            //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+            var angle = 0;
+            function moveBubbles()
+            {
+                angle += 0.01;
+                for(var i = 0; i < maxParts; i++)
+                {
+                    var bub = bubbles[i];
+                    //change movements of each bubble differently since they have different physical properties
+                    bub.y += Math.cos(angle+bub.d) + 1 + bub.r/2; // set y position
+                    bub.x += Math.sin(angle) * 2; // set x position
+
+                    //if bubbles go out of the window get it back from the top and left sides
+                    if(bub.x > W || bub.x < 0 || bub.y > H) // if x cord. greater than or less than window width or y cord. is greater than window height
+                    {
+                        if(i%2 > 0) //if bubble count is half of the total set bubble properties to appear it from the top and left
+                        {
+                            bubbles[i] = {x: Math.random()*W, y: -10, r: bub.r, d: bub.d};
+                        }
+                        else
+                        {
+                            //If the bubble is exiting from the right
+                            if(Math.sin(angle) > 0)
+                            {
+                                //Enter from the left
+                                bubbles[i] = {x: -5, y: Math.random()*H, r: bub.r, d: bub.d};
+                            }
+                            else //If the bubble is exiting from the left
+                            {
+                                //Enter from the right
+                                bubbles[i] = {x: W+5, y: Math.random()*H, r: bub.r, d: bub.d};
+                            }
+                        }
+                    }
+                }
+            }
+            //animation loop
+            setInterval(drawBubbles, 30);// start animation with 30 speed
+        }
+    </script>
+    <!-- open a dialog box on link -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $( "#link1" ).css('zIndex',9999);//div of dialog box: initially set dialog box to the very front
+            $("#link1").dialog({
+                autoOpen: false, //open on click on the link  and set other attributes
+                modal: true,
+                draggable: true,
+                overlay: "background-color: red; opacity: 0.5",
+                width: 270,
+                resizable: true,
+                zIndex: 4
+            });
+            $('#link1').dialog({height: 300});
+            $("#lnk-1").click(
+                    function () {
+                        $("#link1").dialog('open'); // on click open dialog box in the middle of the window
+                        return false;
+                    }
+            );
+        });
+    </script>
+    <!-- Toggle navbar in smaller devices -->
+    <script>
+        $(document).ready(function(){
+            if($(window).width() <= 599){ // if device is small toggle navbar
+                $("#navBar").toggle();
+                $("#navicon").click(function(){
+                    $("#navBar").toggle();
+                });
+            }
+        });
+
+        $(document).ready(function(){ // show/hide video player on button click
+            $("#aside4").toggle();
+            $("#asidebtn2").click(function(){
+                $("#aside4").toggle();
+            });
+        });
+        $(document).ready(function(){ //show/hide audio player on button click
+            $("#aside5").toggle();
+            $("#asidebtn0").click(function(){
+                $("#aside5").toggle();
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<div id="container" >
+
+    <img id="cov" src="../images/cover1.jpg">
+    <button id="navicon"><img src="../images/navbar%20icon.png" alt="navIcon"></button>
+    <nav id="navBar">
+        <ul>
+            <li id="navBar-item1" ><a class="list-items" href="../index.html">HOME</a></li>
+            <li id="navBar-item2"><a class="list-items" href="menu.html">MENU</a></li>
+            <li id="navBar-item3"><a class="list-items" href="services.html">SERVICES</a></li>
+            <li id="navBar-item4"><a class="list-items" href="events.html">EVENTS</a></li>
+            <li id="navBar-item5"><a class="list-items" href="staff.html">STAFF</a></li>
+            <li id="navBar-item6"><a class="list-items" href="contactus.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <br>
+
+    <div id="section">
+		<h3 id="h3-1">VIEW OUR MENUS...</h3>
+		<p id="des0">If you have a food allergy, intolerance or sensitivity, please speak to your server about ingredients in our dishes before you order your meal.</p>
+
+		<div id="menuSection">
+            <canvas id="canvas"></canvas>
+            <div id="part1">
+				<h4 id="menutopic" ><span class="subhead">A La Carte Menu</span></h4>
+				<div id="menubody">
+					<p><br>Menu set
+					If you have a food allergy, intolerance or sensitivity, please speak to your server about ingredients in our dishes before you order your meal.</p>
+					<ul>
+							<li><a href="" id="lnk-1">Drinks</a></li>
+							<li><a href="#">Salads</a></li>
+					</ul>
+				</div>
+                <!-- dialog box html -->
+                <div id= "link1"  multiple >
+                    <h3>Kola Kanda</h3>
+                    <img src="../images/kola kanda.jpg" alt="Photo" class="imgdbox"/>
+                    <p class="pdbox">This is a traditional dish, that is usually eaten before breakfast. It is very nutritious. Serves four.</p><hr>
+                    <h3>Delum Drink</h3>
+                    <img  src="../images/Delum%20drink.jpg" alt="Photo" class="imgdbox"/>
+                    <p class="pdbox">This is a traditional dish, that is usually eaten before breakfast. It is very nutritious. Serves four.</p>
+                </div>
+				<h4 id="menutopic"><span class="subhead">Dessert Menu</span></h4>
+				<div id="menubody">
+					<p><br>Menu set
+					If you have a food allergy, intolerance or sensitivity, please speak to your server about ingredients in our dishes before you order your meal.</p>
+					<ul>
+							<li><a href="#" >Ice Cream</a></li>
+					</ul>
+				</div>
+
+				<h4 id="menutopic"><span class="subhead">Wine List</span></h4>
+				<div id="menubody">
+					<p><br>Menu set
+					If you have a food allergy, intolerance or sensitivity, please speak to your server about ingredients in our dishes before you order your meal.</p>
+					<ul>
+							<li><a href="#">Wine</a></li>
+					</ul>
+				</div>
+            </div>
+
+            <div id="slider">
+
+                    <div class="current">
+                            <img src="../images/Food.jpg" alt="Photo Gallery"  class="gallery" />
+                    </div>
+                    <div>
+                        <img src="../images/Drinks.jpg" alt="Photo Gallery"  class="gallery" />
+                    </div>
+                    <div>
+                        <img src="../images/Sweets.jpg" alt="Photo Gallery"  class="gallery" />
+                    </div>
+                    <div>
+                        <img src="../images/Tasty Foods.jpg" alt="Photo Gallery" class="gallery" />
+                    </div>
+
+            </div>
+            <div id="aside" ng-app="contact" ng-controller="contactCtrl">
+                <div id="aside1">
+                   <button id="asidebtn" ng-click="toggle1()"><img id="callicon" src="../images/callIcon.png" alt="callUs" />Call Us </button>
+
+                    <p style="padding-left: 5px" ng-hide="contactdetails">
+                        Hotline: <input readonly class="callUs" type=text ng-model="hotline"><br>
+                        E-mail: <input readonly class="callUs" type=text ng-model="email"><br>
+                        Address: <input readonly class="callUs" type=text ng-model="address"><br>
+
+                    </p>
+                </div >
+                <div id="aside2">
+                    <button id="asidebtn0" >
+                        <img id="audioicon"  src="../images/audioIcon.png" alt="audio" />Speech By CEO</button>
+                </div>
+                <div id="aside5">
+                    <audio id="playaudio" controls >
+                        <source  src="../Audio/speech.mp3"  type="audio/mp3 ">
+                    </audio>
+                </div>
+
+                <div id="aside3">
+                    <button id="asidebtn1" onclick=window.open("PlayVideo.html","Ratting","width=640,height=440,0,status=0,")>
+                        <img id="videoicon" src="../images/videoIcon.png" alt="video" />Play Video New Tab </button>
+                    <button id="asidebtn2" >
+                        <img id="videoicon"  src="../images/videoIcon.png" alt="video" />Play Video Here</button>
+                 </div>
+                <div id="aside4">
+                   <iframe id="playherevdo"poster="../images/vdoposter.jpg" src="https://www.youtube.com/embed/0Dfn08cWJPc" ></iframe>
+                </div>
+            </div>
+        </div>
+
+		<div id="sidecolumn">
+            <h3 style="color: green"><img id="menuicon" src="../images/menuIcon.png" alt="drink icon"  /><span>Menu Items</span></h3>
+            <div class="ddiv">
+                <p class="dtext">Noodles , This delicious dish will  in sri lanka</p>
+                <img src="../images/noodless.jpg" alt="Photo Gallery"  class="menus" />
+            </div>
+            <div class="ddiv">
+                <p class="dtext">Watalappan , made in sri lanka</p>
+                <img src="../images/dessert.jpg" alt="Photo Gallery"  class="menus" />
+            </div>
+            <div class="ddiv">
+                <p  class="dtext">Cutlets, available several kinds such as vegitable padding, fish cutlets ,polos cutlets sri lanka</p>
+                <img src="../images/cutlets.jpeg" alt="Photo Gallery"  class="menus" />
+            </div>
+            <div class="ddiv">
+                <p class="dtext">Fried rice, made in traditional sri lankan way</p>
+                <img src="../images/Friedrice.jpg" alt="Photo Gallery"  class="menus" />
+            </div>
+            <div class="ddiv">
+                <p class="dtext">String hoppers , one of traditional food in sri lanka</p>
+                <img src="../images/stringhoppers.jpg" alt="Photo Gallery"  class="menus" />
+            </div>
+
+
+            <div class="svgdiv">
+                <svg id="svg" >
+
+                    <g transform="translate(5,35)">
+                        <g transform="translate(100,100)">
+                            <g>
+                                <g transform="translate(-100,-100)">
+                                    <image xlink:href="../images/desserIcon.png" x="0" y="0" width="200" height="150" />
+                                </g>
+                                <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 1.1; 0.3; 0.8; 1" repeatCount="indefinite"/>
+                            </g>
+                        </g>
+
+                    <g transform="translate(155, 35)">
+                        <g transform="translate(100,100)">
+                            <g>
+                                <g transform="translate(-100,-100)">
+                                        <image xlink:href="../images/fruitIcon.png" x="0" y="0" width="200" height="150" />
+                                </g>
+                                <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 0.3; 1.1; 0.6; 1" repeatCount="indefinite"/>
+                             </g>
+                        </g>
+                     </g>
+
+                    <g transform="translate(325, 35)">
+                        <g transform="translate(100,100)">
+                            <g>
+                                <g transform="translate(-100,-100)">
+                                    <image xlink:href="../images/chocoIcon.png" x="0" y="0" width="200" height="150" />
+                                </g>
+                                <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 0.7; 0.3; 0.5; 1" repeatCount="indefinite"/>
+                            </g>
+                        </g>
+                    </g>
+                        <g transform="translate(495, 35)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="../images/riceIcon.png" x="0" y="0" width="200" height="150" />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 1.1; 0.3; 0.8; 1" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="translate(675, 35)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="../images/soupIcon.png" x="0" y="0" width="200" height="150" />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 0.7; 0.3; 0.5; 1" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g transform="translate(845, 35)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="../images/saladIcon.png" x="0" y="0" width="200" height="150" />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 1.1; 0.3; 0.8; 1" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+                        <g  transform="translate(995, 35)">
+                            <g transform="translate(100,100)">
+                                <g>
+                                    <g transform="translate(-100,-100)">
+                                        <image xlink:href="../images/cakeIcon.png" x="0" y="0" width="200" height="150"   />
+                                    </g>
+                                    <animateTransform dur="2s" calcMode="spline" keySplines="0.3 0 1 1; 0.1 0.3 0.3 1; 0 0 1 1;0 0 1 1" attributeName="transform" type="scale" values="1; 0.7; 0.3; 0.5; 1" repeatCount="indefinite"/>
+                                </g>
+                            </g>
+                        </g>
+                </svg>
+            </div>
+
+        </div>
+
+	</div>
+    <div id="footer">
+        <h4>&#169 2015 | Group ID: U | Index Number: 12000452 | Name:M.N.L.Fernando   </h4>
+    </div>
+</div>
+</body>
+</html>

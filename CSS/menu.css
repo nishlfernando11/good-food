@@ -1,0 +1,525 @@
+/* ###### my modified main page CSS starts from here*/
+html, body{
+    margin: 0;
+    height:100%;
+    font-family: Tahoma;
+    font-size: small;
+}
+
+#container{
+    position: relative;
+    min-height: 100%;
+    background: url("../images/banner1.jpg");
+    overflow:hidden;
+    text-align: center;
+    margin: 0;
+    width: 960px ;
+
+}
+
+#navicon{
+    visibility: hidden;
+    cursor:pointer;
+    width: 40px;
+    height: 30px;
+}
+
+#navBar{
+    align-items: center;
+    width: 960px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.list-items{
+    text-decoration: none;
+    color: #fffecc;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+#navBar li{
+    list-style-type: none;
+    display: inline-block;
+    border-radius: 10px;
+    border: 2px solid green;
+    background: linear-gradient(45deg,green,lightgreen);
+    margin-top: -2%;
+    float: left;
+    padding: .3vw;
+    font-size: medium;
+    text-align: center;
+    boder-radius: 10px;
+    width: 11vw;
+    height: 4vh;
+    padding-bottom: 2px;
+    vertical-align: middle;
+    position: relative;
+    transition: height .5s, width .5s, font-size .5s;
+}
+
+#navBar a{
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    -webkit-transform:translate(-50%,-50%);
+    position:absolute;
+    margin: 0;
+    padding: 0;
+}
+
+
+#navBar a:hover{
+    font-size: 18px;
+}
+
+#footer{
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom:0;
+    left:0;
+    border-radius: 5px;
+    background-color:green;
+    color: black;
+}
+
+
+@media screen and (max-width:340px){
+
+    #navicon{
+        visibility: visible;
+    }
+    #navBar li{
+        width: 60vw;
+        font-size: medium;
+        padding: 1px;
+    }
+    #navBar a{
+        font-size: 14px;
+        padding-bottom:5px;
+    }
+    #navBar a:hover{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:599px){
+    #navicon{
+        visibility: visible;
+    }
+    #navBar li{
+        width:70vw;
+        font-size: medium;
+    }
+    #navBar a{
+        font-size: 14px;
+    }
+    #navBar a:hover{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width:959px){
+    #container{
+        width: 100% ;
+    }
+    #navBar{
+        width: 100%;
+    }
+    #cov{
+        width: 100%;
+        margin-top: -56%;
+    }
+    #navBar a{
+        font-size: 10px;
+    }
+    #navBar a:hover{
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width:961px){
+    #container{
+        width: 100% ;
+    }
+    #navBar{
+        width: 100%;
+    }
+    #navBar a{
+        font-size: 12px;
+    }
+    #navBar a{
+        font-size: 14px;
+    }
+    #cov{
+        width: 100%;
+        margin-top: -52%;
+    }
+}
+
+
+/* ###### MY menu page CSS starts from here*/
+#container{
+    background: none;
+}
+#section  {
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    list-style-type: none;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+li ,a {
+    text-decoration: none;
+    list-style-type: none;
+}
+button{
+    cursor: pointer;
+}
+#h3-1{
+    color: green;
+}
+/* top most components*/
+#part1{
+    width: 35vw;
+    float: left;
+    z-index: 1;
+}
+/* accordion*/
+#menutopic {
+    cursor: pointer;
+    border-radius: 8px;
+    border:1px solid green;
+    text-align: center;
+    background:linear-gradient(45deg,green,yellow) ;
+    height: 10%;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#menutopic  h4:hover{
+    background:green;
+    }
+
+#menubody{
+    text-align:left ;
+    border: green;
+    border-radius: 0px 0px 5px 5px;
+    border: 1px solid green;
+
+}
+#menubody  a{
+    text-decoration:none;
+}
+#menubody li{
+    display:inline-block;
+    padding:5px;
+    padding-bottom:1px;
+}
+#menubody  p{
+    margin: 5px;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+
+span.subhead{
+    text-align: center;
+}
+
+
+/* simple image slide show*/
+#slider {
+    width: 35vw;
+    float:left;
+    display: inline;
+    padding-left: 1%;
+    z-index: 1;
+}
+
+#slider div {
+    position:absolute;
+    z-index: 0;
+}
+/* change current position of the current div : send to back */
+#slider div.previousImg {
+    z-index: 1;
+}
+/* change current position of the current div : bring to front */
+#slider div.currentImg {
+    z-index: 2;
+}
+/* css of the gallery images*/
+.gallery{
+    width:400px;
+    height:300px;
+    border: 1px solid brown;
+}
+
+/* 3 photos inline*/
+/*Icons*/
+#menuicon{
+    width: 4vw;
+    height: 4vw;
+}
+#callicon ,#gameicon, #videoicon ,#audioicon{
+    width: 2vw;
+    height: 2vw;
+}
+
+#aside{
+    float: right;
+    width: 23vw;
+
+}
+#aside1,#aside2, #aside3{
+    padding:1px;
+    border: 2px silver solid;
+    background: lightslategray;
+}
+#playherevdo, #playaudio{
+    width: 100%;
+}
+/*aside buttons*/
+#asidebtn ,#asidebtn0 {
+    text-align: center;
+    color: green;
+    width: 100%;
+
+}
+#asidebtn2, #asidebtn1{
+    text-align: center;
+    color: green;
+}
+/*game p tags*/
+#gamep{
+    padding-left:5px;
+    text-align:center;
+    width:4vw;
+    border: 1px solid silver;
+    background: white;
+    display: inline;
+}
+
+
+.callUs{
+    font-family: Tahoma;
+    background: none;
+    border: none;
+
+}
+#sidecolumn{
+    float: left;
+    width: 95vw;
+    margin-bottom: 6%;
+}
+
+.menus{
+    width:200px;
+    height: 150px;
+    border: 1px solid brown;
+    background: darkgoldenrod;
+}
+.menus:hover , .dtext{
+    visibility: visible;
+
+}
+/* hide on hover text initially*/
+
+
+ /*display text on image hover*/
+.ddiv:hover  .dtext  {
+    visibility: visible;
+}
+
+ .ddiv {
+     width: 95vw;
+     display: inline;
+
+ }
+.dtext{
+    visibility:hidden;
+    border: 1px solid black;
+    background: orange;
+    display: inline;
+    border-radius:5px;
+    position: absolute;
+    width: 200px;
+    margin-top: -1%;
+    padding: 2px;
+
+}
+/*canvas*/
+#canvas{
+    position:absolute;
+    display: block;
+    z-index: -1;
+
+}
+/*svg*/
+#svg{
+    width:100vw;
+    height: 18vw;
+    padding-bottom: 5%;
+}
+#link1{
+    width: 50px;
+    height: 40px;
+    border: 1px solid black;
+    border-top-style: solid;
+    background-color:lavender;
+    color:gray;
+
+}
+
+/* open dialog box*/
+.imgdbox{
+    height: 150px;
+    width: 200px;
+    padding: 6px 6px 0px 6px;
+    border-radius: 10px;
+    background-clip: padding-box;
+    background-clip: content-box;
+}
+.pdbox{
+    padding:0px 6px 0px 6px;
+    color: black;
+}
+.ui-dialog-titlebar {
+    cursor: move;
+    background-image: none;  /** change css properties to match your theme*/
+    background: url("../images/barIcon.jpg");
+    background-size: 200px 20px;
+    border: 1px solid black;
+    border-bottom: none;
+}
+.ui-dialog-titlebar-close{
+    color: white;
+    text-emphasis: white;
+    border: 1px solid black;
+    background: linear-gradient(45deg,red,indianred);
+}
+.ui-dialog{
+    position:absolute;
+    z-index:103;
+}
+
+
+.ui-widget-overlay{
+    z-index:102;
+}
+#link1.ui-dialog-content{
+    overflow: auto; /* Or scroll, depending on your needs*/
+    width: 200px;
+}
+
+/* media queries */
+
+@media screen and (min-width: 0px)and (max-width:599px){
+    .ui-dialog{
+        position:absolute;
+        z-index:103;
+        width: 80vw;
+    }
+    #playherevdo{
+        height: 200px;
+    }
+    #callicon ,#gameicon, #videoicon ,#audioicon{
+        width: 4vw;
+        height: 4vw;
+    }
+    #slider{
+        visibility: hidden;
+    }
+    #part1{
+        width: 85vw;
+    }
+    #des0, #h3-1{
+        width: 80vw;
+    }
+    #aside{
+        width: 90vw;
+    }
+    #asidebtn2, #asidebtn1{
+        width: 43vw;
+    }
+    .menus{
+        width: 80vw;
+        height: 50vw;
+    }
+    .dtext{
+        width: 80vw;
+    }
+    .ddiv {
+        display: inline-block;
+        width: 100vw;
+    }
+    #svg{
+        visibility: hidden;
+    }
+}
+@media screen  and (min-width: 600px) and (max-width:799px){
+    #slider , .gallery{
+        width: 51vw;
+        height:250px ;
+    }
+    #aside{
+        width: 90vw;
+    }
+    #asidebtn2, #asidebtn1{
+        width: 43vw;
+    }
+    #des0, #h3-1{
+        width: 100vw;
+    }
+
+    #playhereaudio{
+        width: 100vw;
+    }
+    #playherevdo{
+        height: 300px;
+    }
+    .ddiv {
+        display: inline;
+        width: 100vw;
+    }
+    #svg{
+        visibility: hidden;
+    }
+}
+
+@media screen  and (min-width: 800px) and  (max-width:959px){
+    #slider ,  .gallery{
+        width: 50vw;
+        height: 200px;
+
+    }
+    #aside{
+        width: 90vw;
+    }
+
+    #des0, #h3-1{
+        width: 100vw;
+    }
+    #playherevdo{
+        height: 300px;
+    }
+
+    .ddiv {
+        display: inline;
+        width: 100vw;
+    }
+
+}
+
+@media screen and (min-width:960px) {
+ .ddiv{
+     padding: 10px;
+ }
+
+}
+
+
